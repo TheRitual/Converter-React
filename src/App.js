@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Converter from "./Converter/Converter";
 import Header from "./Header";
 import Info from "./Info";
