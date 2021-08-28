@@ -1,10 +1,15 @@
 import "./style.css";
 
-const Info = () => (
-    <section class="info">
-        <p class="info__paragraph">Connecting to NBP. Please Wait...</p>
-        <p class="info__paragraph info__paragraph--error info__paragraph--hidden">Can't connect to NBP...</p>
-    </section>
-);
+const Info = ({ showError, showLoading }) => {
+    if (showError || showLoading) {
+        return (
+            <section className="info">
+                {showLoading ? <p className="info__paragraph">Connecting to NBP. Please Wait...</p> : ""}
+                {showError ? <p className="info__paragraph info__paragraph--error">Can't connect to NBP...</p> : ""}
+            </section>
+        );
+    }
+    return "";
+};
 
 export default Info;
