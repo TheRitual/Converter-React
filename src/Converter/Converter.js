@@ -9,7 +9,7 @@ const Converter = () => (
                     className="converter__select"></select>
             </p>
             <p>
-                <input type="number" value="1.00" min="0" pattern="^\d{1,6}(\.\d{1,2})?$" id="valuePLN" className="converter__field" autofocus />
+                <input type="number" value="1.00" min="0" pattern="^\d{1,6}(\.\d{1,2})?$" id="valuePLN" className="converter__field" autoFocus />
                 <label htmlFor="valuePLN">PLN</label>
             </p>
 
