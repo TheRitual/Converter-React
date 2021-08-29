@@ -58,6 +58,8 @@ function App() {
           currencyList={currencyList}
           setRate={setRate}
           rate={rate}
+          savedList={savedList}
+          setSavedList={setSavedList}
         />
         <List savedList={savedList} setSavedList={setSavedList}/>
       </div>

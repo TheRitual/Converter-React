@@ -23,8 +23,8 @@ const Converter = (props) => {
         console.log("saving position");
         props.setSavedList(
             [...props.savedList, {
-                valPLN : props.valuePLN,
-                valCUR : props.valueCUR,
+                valPLN : Number(props.valuePLN).toFixed(2),
+                valCUR : Number(props.valueCUR).toFixed(2),
                 rate : props.rate,
                 code : props.currency,
             }]
@@ -47,12 +47,12 @@ const Converter = (props) => {
                         </select>
                     </p>
                     <p>
-                        <input type="number" step="0.01" value={Number(props.valuePLN).toString()} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
+                        <input type="number" step="any" value={Number(props.valuePLN).toString()} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
                         <label htmlFor="valuePLN">PLN</label>
                     </p>
 
                     <p>
-                        <input type="number" step="0.01" value={Number(props.valueCUR).toString()} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
+                        <input type="number" step="any" value={Number(props.valueCUR).toString()} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
                         <label htmlFor="currencyField">{props.currency}</label>
                     </p>
                     <p className="converter__paragraph">
