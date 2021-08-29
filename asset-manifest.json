@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/converter-react/static/css/main.a617e044.chunk.css",
-    "main.js": "/converter-react/static/js/main.f479a429.chunk.js",
-    "main.js.map": "/converter-react/static/js/main.f479a429.chunk.js.map",
-    "runtime-main.js": "/converter-react/static/js/runtime-main.171566ad.js",
-    "runtime-main.js.map": "/converter-react/static/js/runtime-main.171566ad.js.map",
-    "static/js/2.36326054.chunk.js": "/converter-react/static/js/2.36326054.chunk.js",
-    "static/js/2.36326054.chunk.js.map": "/converter-react/static/js/2.36326054.chunk.js.map",
-    "static/js/3.623c87c2.chunk.js": "/converter-react/static/js/3.623c87c2.chunk.js",
-    "static/js/3.623c87c2.chunk.js.map": "/converter-react/static/js/3.623c87c2.chunk.js.map",
+    "main.css": "/converter-react/static/css/main.3cdf7e90.chunk.css",
+    "main.js": "/converter-react/static/js/main.3b56444c.chunk.js",
+    "main.js.map": "/converter-react/static/js/main.3b56444c.chunk.js.map",
+    "runtime-main.js": "/converter-react/static/js/runtime-main.636ec86e.js",
+    "runtime-main.js.map": "/converter-react/static/js/runtime-main.636ec86e.js.map",
+    "static/js/2.9618c235.chunk.js": "/converter-react/static/js/2.9618c235.chunk.js",
+    "static/js/2.9618c235.chunk.js.map": "/converter-react/static/js/2.9618c235.chunk.js.map",
+    "static/js/3.aca03545.chunk.js": "/converter-react/static/js/3.aca03545.chunk.js",
+    "static/js/3.aca03545.chunk.js.map": "/converter-react/static/js/3.aca03545.chunk.js.map",
     "index.html": "/converter-react/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/converter-react/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.36326054.chunk.js.LICENSE.txt": "/converter-react/static/js/2.36326054.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/converter-react/static/media/logo.6ce24c58.svg"
+    "static/css/main.3cdf7e90.chunk.css.map": "/converter-react/static/css/main.3cdf7e90.chunk.css.map",
+    "static/js/2.9618c235.chunk.js.LICENSE.txt": "/converter-react/static/js/2.9618c235.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/converter-react/static/media/doodle.12130957.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.171566ad.js",
-    "static/js/2.36326054.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.f479a429.chunk.js"
+    "static/js/runtime-main.636ec86e.js",
+    "static/js/2.9618c235.chunk.js",
+    "static/css/main.3cdf7e90.chunk.css",
+    "static/js/main.3b56444c.chunk.js"
   ]
 }
