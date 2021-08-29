@@ -14,13 +14,9 @@ const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate
     }, [currency, rate]);
 
     const onValuePLNChange = (event) => {
+        setValueCUR(Number(event.target.value / rate).toFixed(2));
         setValuePLN(Number(event.target.value));
     }
-    
-    useEffect(() => {
-        setValueCUR(Number(valuePLN / rate).toFixed(2));
-        // eslint-disable-next-line
-    }, [valuePLN]);
 
     const onValueCURChange = (event) => {
         setValueCUR(Number(event.target.value));
