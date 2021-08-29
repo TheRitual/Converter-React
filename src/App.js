@@ -15,7 +15,7 @@ function App() {
   const [valuePLN, setValuePLN] = useState(1.00);
   const [valueCUR, setValueCUR] = useState(1.00);
 
-  const getRate = (currency = "USD") => currencyList.filter(cur => cur.code === currency)[0].bid;
+  const getBid = (currency = "USD") => currencyList.filter(cur => cur.code === currency)[0].bid;
 
   const fetchData = useCallback(async () => {
     if (!dataReceived) {
@@ -54,7 +54,7 @@ function App() {
           setValuePLN={setValuePLN}
           valueCUR={valueCUR}
           setValueCUR={setValueCUR}
-          getRate={getRate}
+          getBid={getBid}
           currencyList={currencyList}
           setRate={setRate}
           rate={rate}

@@ -1,29 +1,30 @@
 import "./style.css";
 import { useEffect } from "react";
 
-const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate, setCurrency, getRate, setSavedList, currency, savedList, currencyList }) => {
+const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate, setCurrency, getBid, setSavedList, currency, savedList, currencyList }) => {
 
     const onChangeCurrency = (event) => {
         setCurrency(event.target.value);
     }
 
     useEffect(() => {
-        setRate(getRate(currency));
+        setRate(getBid(currency));
         setValueCUR(Number(valuePLN / rate).toFixed(2));
-    }, [setRate, currency, getRate, rate, setValueCUR, valuePLN]);
+        // eslint-disable-next-line
+    }, [currency, rate]);
 
     const onValuePLNChange = (event) => {
         setValuePLN(Number(event.target.value));
     }
     
     useEffect(() => {
-        setValueCUR(Number(valuePLN / rate));
-    }, [rate, setValueCUR, valuePLN]);
+        setValueCUR(Number(valuePLN / rate).toFixed(2));
+        // eslint-disable-next-line
+    }, [valuePLN]);
 
     const onValueCURChange = (event) => {
         setValueCUR(Number(event.target.value));
-        //this one cant be done with useEffect as it would be infinite loop of changing values between PLN and CUR
-        setValuePLN(Number(event.target.value * rate));
+        setValuePLN(Number(event.target.value * rate).toFixed(2));
     }
 
     const save = (event) => {
