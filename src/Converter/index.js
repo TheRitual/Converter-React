@@ -22,6 +22,7 @@ const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate
 
     const onValueCURChange = (event) => {
         setValueCUR(Number(event.target.value));
+        //this one cant be done with useEffect as it would be infinite loop of changing values between PLN and CUR
         setValuePLN(Number(event.target.value * rate));
     }
 
