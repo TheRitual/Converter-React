@@ -7,7 +7,7 @@ function App() {
 
   const [currencyList, setCurrencyList] = useState([{ currency: "dolar amerykański", code: "USD", bid: 3.8551, ask: 3.9329 }]);
   const [rate, setRate] = useState(3.8551);
-  const [currency, setCurrency] = useState("USD");
+  const [currency, setCurrency] = useState("LOADING");
   const [valuePLN, setValuePLN] = useState("1.00");
   const [valueCUR, setValueCUR] = useState("1.00");
   const getRate = (currency = "USD") => currencyList.filter(cur => cur.code === currency)[0].bid;
@@ -22,8 +22,11 @@ function App() {
   }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData().then(() => {
+      setCurrency(currencyList[0].code);
+      setRate(currencyList[0].bid);
+    });
+  }, [setCurrencyList, setRate, currencyList]);
 
   return (
     <main>
