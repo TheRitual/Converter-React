@@ -21,6 +21,14 @@ const Converter = ({data}) => {
     const save = (event) => {
         event.preventDefault();
         console.log("saving position");
+        data.setSavedList(
+            [...data.savedList, {
+                valPLN : data.valuePLN,
+                valCUR : data.valueCUR,
+                rate : data.rate,
+                code : data.currency,
+            }]
+        );
     }
 
    

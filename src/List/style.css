@@ -12,5 +12,32 @@
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px 10px #00000099;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.list__header {
+    padding: 0 0 10px 0;
+}
+
+.list__savedList {
+    list-style-type: none;
+    margin: auto;
+    padding: 0px;
+}
+
+.list__savedPositions {
+    color: #000;
+    border-bottom: 1px #CCC solid;
+    border-top: 1px #AAA solid;
+    padding: 20px;
+    margin: auto;
+}
+
+.list__code {
+    color: #FFF;
+    background-color: #005857;
+    font-size: 18px;
+    padding: 7px;
+    border-radius: 10px;
 }
