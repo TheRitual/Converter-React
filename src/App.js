@@ -17,8 +17,6 @@ function App() {
 
   const getRate = (currency = "USD") => currencyList.filter(cur => cur.code === currency)[0].bid;
 
-  const dataObject = { currency, setCurrency, valuePLN, setValuePLN, valueCUR, setValueCUR, rate, setRate, currencyList, setCurrencyList, getRate, savedList, setSavedList };
-
   const fetchData = useCallback(async () => {
     if (!dataReceived) {
       console.log("Connecting to NBP");
@@ -49,8 +47,19 @@ function App() {
     <main>
       <Header />
       <div className="box">
-        <Converter data={dataObject} />
-        <List savedList={savedList} />
+        <Converter
+          setCurrency={setCurrency}
+          currency={currency}
+          valuePLN={valuePLN}
+          setValuePLN={setValuePLN}
+          valueCUR={valueCUR}
+          setValueCUR={setValueCUR}
+          getRate={getRate}
+          currencyList={currencyList}
+          setRate={setRate}
+          rate={rate}
+        />
+        <List savedList={savedList} setSavedList={setSavedList}/>
       </div>
     </main>
   );

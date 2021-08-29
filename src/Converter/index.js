@@ -1,32 +1,32 @@
 import "./style.css";
 
-const Converter = ({data}) => {
+const Converter = (props) => {
     
     const onChangeCurrency = (event) => {
-        data.setCurrency(event.target.value);
-        data.setRate(data.getRate(event.target.value));
-        data.setValueCUR(Number(data.valuePLN / data.getRate(event.target.value)).toFixed(2));
+        props.setCurrency(event.target.value);
+        props.setRate(props.getRate(event.target.value));
+        props.setValueCUR(Number(props.valuePLN / props.rate).toFixed(2));
     }
 
     const onValuePLNChange = (event) => {
-        data.setValuePLN(Number(event.target.value));
-        data.setValueCUR(Number(event.target.value / data.rate).toFixed(2));
+        props.setValuePLN(Number(event.target.value));
+        props.setValueCUR(Number(event.target.value / props.rate).toFixed(2));
     }
 
     const onValueCURChange = (event) => {
-        data.setValueCUR(Number(event.target.value));
-        data.setValuePLN(Number(event.target.value * data.rate).toFixed(2));
+        props.setValueCUR(Number(event.target.value));
+        props.setValuePLN(Number(event.target.value * props.rate).toFixed(2));
     }
 
     const save = (event) => {
         event.preventDefault();
         console.log("saving position");
-        data.setSavedList(
-            [...data.savedList, {
-                valPLN : data.valuePLN,
-                valCUR : data.valueCUR,
-                rate : data.rate,
-                code : data.currency,
+        props.setSavedList(
+            [...props.savedList, {
+                valPLN : props.valuePLN,
+                valCUR : props.valueCUR,
+                rate : props.rate,
+                code : props.currency,
             }]
         );
     }
@@ -40,23 +40,23 @@ const Converter = ({data}) => {
                         <label htmlFor="currencyField">Currency: </label>
                         <select onChange={onChangeCurrency} id="currencyList" className="converter__select">
                             {
-                                data.currencyList.map((currency, index) => {
+                                props.currencyList.map((currency, index) => {
                                     return (<option key={index} value={currency.code}>{currency.code}</option>);
                                 })
                             }
                         </select>
                     </p>
                     <p>
-                        <input type="number" step="0.01" value={data.valuePLN} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
+                        <input type="number" step="0.01" value={Number(props.valuePLN).toString()} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
                         <label htmlFor="valuePLN">PLN</label>
                     </p>
 
                     <p>
-                        <input type="number" step="0.01" value={data.valueCUR} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
-                        <label htmlFor="currencyField">{data.currency}</label>
+                        <input type="number" step="0.01" value={Number(props.valueCUR).toString()} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
+                        <label htmlFor="currencyField">{props.currency}</label>
                     </p>
                     <p className="converter__paragraph">
-                        {data.currency} rate: <span className="converter__rate">{data.rate}</span>
+                        {props.currency} rate: <span className="converter__rate">{props.rate}</span>
                         <button className="converter__button">Save</button>
                     </p>
                 </form>
