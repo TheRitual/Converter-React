@@ -4,7 +4,6 @@ import { useEffect } from "react";
 const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate, setCurrency, getRate, setSavedList, currency, savedList, currencyList }) => {
 
     const onChangeCurrency = (event) => {
-        //I'll repair it when i lear how useEffect works
         setCurrency(event.target.value);
     }
 
@@ -15,12 +14,15 @@ const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate
 
     const onValuePLNChange = (event) => {
         setValuePLN(Number(event.target.value));
-        setValueCUR(Number(event.target.value / rate).toFixed(2));
     }
+    
+    useEffect(() => {
+        setValueCUR(Number(valuePLN / rate));
+    }, [rate, setValueCUR, valuePLN]);
 
     const onValueCURChange = (event) => {
         setValueCUR(Number(event.target.value));
-        setValuePLN(Number(event.target.value * rate).toFixed(2));
+        setValuePLN(Number(event.target.value * rate));
     }
 
     const save = (event) => {
