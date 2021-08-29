@@ -7,11 +7,11 @@ import "./App.css";
 
 function App() {
 
-  const [currencyList, setCurrencyList] = useState([{ currency: "loading", code: "LOADING", bid: 6.66, ask: 6.66 }]);
+  const [currencyList, setCurrencyList] = useState([{ currency: "LOADING", code: "USD", bid: 6.66, ask: 6.66 }]);
   const [dataReceived, setDataReceived] = useState(false);
   const [savedList, setSavedList] = useState([]);
   const [rate, setRate] = useState(3.8551);
-  const [currency, setCurrency] = useState("LOADING");
+  const [currency, setCurrency] = useState("USD");
   const [valuePLN, setValuePLN] = useState(1.00);
   const [valueCUR, setValueCUR] = useState(1.00);
 
