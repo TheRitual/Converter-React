@@ -62,3 +62,22 @@
     background-color: #005857;
     color: #DDD;
 }
+
+.converter__button {
+    display: block;
+    font-size: 20px;
+    margin: 15px auto;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 7px;
+    color: #005857;
+    background-color: hsl(179, 100%, 98%);
+    transition: 0.3s;
+}
+
+.converter__button:hover {
+    background-color: hsl(179, 100%, 20%);
+    color: #FFF;
+    transform: scale(1.2);
+    cursor: pointer;
+}

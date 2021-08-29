@@ -5,25 +5,29 @@ const Converter = ({data}) => {
     const onChangeCurrency = (event) => {
         data.setCurrency(event.target.value);
         data.setRate(data.getRate(event.target.value));
-        data.setValueCUR(Number(data.valuePLN / data.rate).toFixed(2));
+        data.setValueCUR(Number(data.valuePLN / data.getRate(event.target.value)).toFixed(2));
     }
 
     const onValuePLNChange = (event) => {
-        event.preventDefault();
-        data.setValuePLN(Number(event.target.value).toFixed(2));
-        data.setValueCUR(Number(data.valuePLN / data.rate).toFixed(2));
+        data.setValuePLN(Number(event.target.value));
+        data.setValueCUR(Number(event.target.value / data.rate).toFixed(2));
     }
 
     const onValueCURChange = (event) => {
-        data.setValueCUR(Number(event.target.value).toFixed(2));
-        data.setValuePLN(Number(data.valueCUR * data.rate).toFixed(2));
+        data.setValueCUR(Number(event.target.value));
+        data.setValuePLN(Number(event.target.value * data.rate).toFixed(2));
+    }
+
+    const save = (event) => {
+        event.preventDefault();
+        console.log("saving position");
     }
 
    
         return (
             <section className="converter">
                 <h2 className="converter__header">Converter</h2>
-                <form className="converter__form" onSubmit={onValuePLNChange}>
+                <form className="converter__form" onSubmit={save}>
                     <p>
                         <label htmlFor="currencyField">Currency: </label>
                         <select onChange={onChangeCurrency} id="currencyList" className="converter__select">
@@ -35,16 +39,17 @@ const Converter = ({data}) => {
                         </select>
                     </p>
                     <p>
-                        <input type="number" value={data.valuePLN} onChange={onValuePLNChange} min="0" pattern="^\d{1,6}(\.\d{1,2})?$" id="valuePLN" className="converter__field" autoFocus />
+                        <input type="number" step="0.01" value={data.valuePLN} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
                         <label htmlFor="valuePLN">PLN</label>
                     </p>
 
                     <p>
-                        <input type="number" value={data.valueCUR} onChange={onValueCURChange} min="0" pattern="^\d{1,6}((\.|\,)\d{1,2})?$" id="currencyField" className="converter__field" />
+                        <input type="number" step="0.01" value={data.valueCUR} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
                         <label htmlFor="currencyField">{data.currency}</label>
                     </p>
                     <p className="converter__paragraph">
                         {data.currency} rate: <span className="converter__rate">{data.rate}</span>
+                        <button className="converter__button">Save</button>
                     </p>
                 </form>
             </section>);
