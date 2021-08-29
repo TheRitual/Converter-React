@@ -1,10 +1,8 @@
 /* converter.css */
 
 .converter {
-    width: 100%;
-    min-width: 400px;
-    max-width: 600px;
-    margin: auto;
+    flex-basis: 400px;
+    margin: 30px;
     text-align: center;
     font-size: 20px;
     color: #005857;

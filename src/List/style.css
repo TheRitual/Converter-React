@@ -1,10 +1,7 @@
 /* list */
 
 .list {
-    width: 100%;
-    min-width: 400px;
-    max-width: 600px;
-    margin: auto;
+    flex-basis: 350px;
     text-align: center;
     font-size: 20px;
     color: #005857;

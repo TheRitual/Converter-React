@@ -8,9 +8,8 @@ const List = ({savedList}) => {
                     {savedList.map((record, index) => {
                         return(
                             <li key={index} className="list__savedPositions">
-                                {record.valPLN} <span className="list__code">PLN</span>
-                                {" ➤ "}
-                                {record.valCUR} <span className="list__code">{record.code}</span>
+                                {record.valPLN}&nbsp;<span className="list__code">PLN</span>&nbsp;➤&nbsp;
+                                {record.valCUR}&nbsp;<span className="list__code">{record.code}</span>
                             </li>
                         );
                     } )}

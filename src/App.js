@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import Converter from "./Converter";
 import Header from "./Header";
 import List from "./List";
+import "./App.css";
 
 
 function App() {
@@ -47,8 +48,10 @@ function App() {
   return (
     <main>
       <Header />
-      <Converter data={dataObject} />
-      <List savedList={savedList} />
+      <div className="box">
+        <Converter data={dataObject} />
+        <List savedList={savedList} />
+      </div>
     </main>
   );
 }
