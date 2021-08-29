@@ -5,7 +5,7 @@ import Header from "./Header";
 
 function App() {
 
-  const [currencyList, setCurrencyList] = useState([{ currency: "dolar amerykański", code: "USD", bid: 3.8551, ask: 3.9329 }]);
+  const [currencyList, setCurrencyList] = useState([{ currency: "loading", code: "LOADING", bid: 6.66, ask: 6.66 }]);
   const [rate, setRate] = useState(3.8551);
   const [currency, setCurrency] = useState("LOADING");
   const [valuePLN, setValuePLN] = useState("1.00");
@@ -17,16 +17,16 @@ function App() {
       .then((response) => response.json())
       .then((jsonData) => {
         setCurrencyList(jsonData[0].rates);
+        setCurrency(jsonData[0].rates[0].code);
+        setRate(jsonData[0].rates[0].bid);
+        setValueCUR(rate);
       })
       .catch((error) => { console.log(error); });
   }
 
   useEffect(() => {
-    fetchData().then(() => {
-      setCurrency(currencyList[0].code);
-      setRate(currencyList[0].bid);
-    });
-  }, [setCurrencyList, setRate, currencyList]);
+    fetchData();
+  },[]);
 
   return (
     <main>

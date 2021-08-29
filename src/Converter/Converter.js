@@ -9,6 +9,7 @@ const Converter = ({data}) => {
     }
 
     const onValuePLNChange = (event) => {
+        event.preventDefault();
         data.setValuePLN(Number(event.target.value).toFixed(2));
         data.setValueCUR(Number(data.valuePLN / data.rate).toFixed(2));
     }
@@ -22,7 +23,7 @@ const Converter = ({data}) => {
         return (
             <section className="converter">
                 <h2 className="converter__header">Converter</h2>
-                <form className="converter__form">
+                <form className="converter__form" onSubmit={onValuePLNChange}>
                     <p>
                         <label htmlFor="currencyField">Currency: </label>
                         <select onChange={onChangeCurrency} id="currencyList" className="converter__select">
@@ -45,7 +46,6 @@ const Converter = ({data}) => {
                     <p className="converter__paragraph">
                         {data.currency} rate: <span className="converter__rate">{data.rate}</span>
                     </p>
-
                 </form>
             </section>);
 };
