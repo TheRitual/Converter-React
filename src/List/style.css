@@ -31,6 +31,10 @@
     margin: auto;
 }
 
+.list__savedPositions:hover {
+    background-color: #def0ef;
+}
+
 .list__code {
     color: #FFF;
     background-color: #005857;

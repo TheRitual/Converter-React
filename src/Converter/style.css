@@ -56,9 +56,9 @@
     background-color: #ebebeb;
 }
 
-.converter__field:disabled {
-    background-color: #005857;
-    color: #DDD;
+.converter__field:focus {
+    background-color: #def0ef;
+    color: #000;
 }
 
 .converter__button {
@@ -78,4 +78,13 @@
     color: #FFF;
     transform: scale(1.2);
     cursor: pointer;
+}
+
+.converter__code {
+    color: #FFF;
+    background-color: #005857;
+    font-size: 18px;
+    padding: 7px;
+    border-radius: 10px;
+    margin-left: 10px;
 }

@@ -3,6 +3,7 @@ import "./style.css";
 const Converter = (props) => {
     
     const onChangeCurrency = (event) => {
+        //I'll repair it when i lear how useEffect works
         props.setCurrency(event.target.value);
         props.setRate(props.getRate(event.target.value));
         props.setValueCUR(Number(props.valuePLN / props.rate).toFixed(2));
@@ -22,12 +23,12 @@ const Converter = (props) => {
         event.preventDefault();
         console.log("saving position");
         props.setSavedList(
-            [...props.savedList, {
+            [{
                 valPLN : Number(props.valuePLN).toFixed(2),
                 valCUR : Number(props.valueCUR).toFixed(2),
                 rate : props.rate,
                 code : props.currency,
-            }]
+            }, ...props.savedList]
         );
     }
 
@@ -48,12 +49,12 @@ const Converter = (props) => {
                     </p>
                     <p>
                         <input type="number" step="any" value={Number(props.valuePLN).toString()} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
-                        <label htmlFor="valuePLN">PLN</label>
+                        <label htmlFor="valuePLN" className="converter__code">PLN</label>
                     </p>
 
                     <p>
                         <input type="number" step="any" value={Number(props.valueCUR).toString()} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
-                        <label htmlFor="currencyField">{props.currency}</label>
+                        <label htmlFor="currencyField" className="converter__code">{props.currency}</label>
                     </p>
                     <p className="converter__paragraph">
                         {props.currency} rate: <span className="converter__rate">{props.rate}</span>
