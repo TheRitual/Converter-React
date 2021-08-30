@@ -4,16 +4,18 @@ import Header from "./Header";
 import List from "./List";
 import "./App.css";
 
-
-function App() {
-
+const getInitialList = () => {
   const localStorageList = localStorage.getItem("savedList");
-  const [savedList, setSavedList] = useState(
+  return (
     localStorageList ?
     JSON.parse(localStorageList) :
     []
   );
+}
 
+
+function App() {
+  const [savedList, setSavedList] = useState(getInitialList());
   const [currencyList, setCurrencyList] = useState([{ currency: "LOADING", code: "USD", bid: 6.66, ask: 6.66 }]);
   const [dataReceived, setDataReceived] = useState(false);
   const [rate, setRate] = useState(3.8551);
