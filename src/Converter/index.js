@@ -1,5 +1,6 @@
 import "./style.css";
 import { useEffect } from "react";
+import Clock from "./Clock"
 
 const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate, setCurrency, getBid, setSavedList, currency, savedList, currencyList }) => {
 
@@ -42,6 +43,9 @@ const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate
     return (
         <section className="converter">
             <h2 className="converter__header">Converter</h2>
+            <Clock>
+
+            </Clock>
             <form className="converter__form" onSubmit={save}>
                 <p>
                     <label htmlFor="currencyField">Currency: </label>
