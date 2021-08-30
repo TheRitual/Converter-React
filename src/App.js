@@ -17,6 +17,16 @@ function App() {
 
   const getBid = (currency = "USD") => currencyList.filter(cur => cur.code === currency)[0].bid;
 
+  useEffect(() => {
+    if (localStorage.getItem("savedList")) {
+      setSavedList(JSON.parse(localStorage.getItem("savedList")));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("savedList", JSON.stringify(savedList));
+  }, [savedList]);
+
   const fetchData = useCallback(async () => {
     if (!dataReceived) {
       console.log("Connecting to NBP");
@@ -36,12 +46,13 @@ function App() {
     } else {
       return null;
     }
-  }
-    , [rate, dataReceived]);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <main>
@@ -61,7 +72,7 @@ function App() {
           savedList={savedList}
           setSavedList={setSavedList}
         />
-        <List savedList={savedList} setSavedList={setSavedList}/>
+        <List savedList={savedList} setSavedList={setSavedList} />
       </div>
     </main>
   );

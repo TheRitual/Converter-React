@@ -25,7 +25,6 @@ const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate
 
     const save = (event) => {
         event.preventDefault();
-        console.log("saving position");
         setSavedList(
             [{
                 valPLN: Number(valuePLN).toFixed(2),
