@@ -23,9 +23,15 @@
     list-style-type: none;
     margin: auto;
     padding: 0px;
+    overflow-y: auto;
+    max-height: 600px;
 }
 
 .list__savedPositions {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
     color: #000;
     border-bottom: 1px #CCC solid;
     border-top: 1px #AAA solid;
@@ -44,4 +50,46 @@
     font-size: 12px;
     padding: 5px;
     border-radius: 10px;
+}
+
+.list__removeButton {
+    color: rgb(92, 35, 35);
+    background-color: rgba(92, 35, 35, 0.219);
+    font-size: 15px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.list__removeButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: tomato;
+    color: #000;
+}
+
+.list__clearListButton {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(92, 35, 35);
+    background-color: transparent;
+    font-size: 20px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.list__clearListButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    color: #000;
+}
+
+.list__value {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
 }

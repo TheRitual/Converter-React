@@ -25,12 +25,15 @@ const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate
 
     const save = (event) => {
         event.preventDefault();
+
         setSavedList(
             [{
                 valPLN: Number(valuePLN).toFixed(2),
                 valCUR: Number(valueCUR).toFixed(2),
-                rate: rate,
+                id: savedList.length ? savedList[0].id + 1 : 0,
                 code: currency,
+                rate: rate,
+                date: new Date().toISOString(),
             }, ...savedList]
         );
     }
