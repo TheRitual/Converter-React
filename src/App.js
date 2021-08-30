@@ -7,21 +7,21 @@ import "./App.css";
 
 function App() {
 
+  const localStorageList = localStorage.getItem("savedList");
+  const [savedList, setSavedList] = useState(
+    localStorageList ?
+    JSON.parse(localStorageList) :
+    []
+  );
+
   const [currencyList, setCurrencyList] = useState([{ currency: "LOADING", code: "USD", bid: 6.66, ask: 6.66 }]);
   const [dataReceived, setDataReceived] = useState(false);
-  const [savedList, setSavedList] = useState([]);
   const [rate, setRate] = useState(3.8551);
   const [currency, setCurrency] = useState("USD");
   const [valuePLN, setValuePLN] = useState(1.00);
   const [valueCUR, setValueCUR] = useState(1.00);
 
   const getBid = (currency = "USD") => currencyList.filter(cur => cur.code === currency)[0].bid;
-
-  useEffect(() => {
-    if (localStorage.getItem("savedList")) {
-      setSavedList(JSON.parse(localStorage.getItem("savedList")));
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("savedList", JSON.stringify(savedList));
