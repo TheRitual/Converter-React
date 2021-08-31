@@ -15,18 +15,8 @@ function App() {
       <Header />
       <div className="box">
         <Converter
-          setCurrency={states.setCurrency}
-          currency={states.currency}
-          valuePLN={states.valuePLN}
-          setValuePLN={states.setValuePLN}
-          valueCUR={states.valueCUR}
-          setValueCUR={states.setValueCUR}
+          states={states}
           getBid={getBid}
-          currencyList={states.currencyList}
-          setRate={states.setRate}
-          rate={states.rate}
-          savedList={states.savedList}
-          setSavedList={states.setSavedList}
         />
         <List savedList={states.savedList} setSavedList={states.setSavedList} />
       </div>

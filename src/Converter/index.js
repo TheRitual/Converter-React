@@ -1,44 +1,10 @@
 import "./style.css";
-import { useEffect } from "react";
 import Clock from "./Clock"
+import { useConverterFunctions } from "./useConverterFunctions";
 
-const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate, setCurrency, getBid, setSavedList, currency, savedList, currencyList }) => {
+const Converter = ({ states, getBid }) => {
 
-    const onChangeCurrency = (event) => {
-        setCurrency(event.target.value);
-    }
-
-    useEffect(() => {
-        setRate(getBid(currency));
-        setValueCUR(Number(valuePLN / rate).toFixed(2));
-        // eslint-disable-next-line
-    }, [currency, rate]);
-
-    const onValuePLNChange = (event) => {
-        setValueCUR(Number(event.target.value / rate).toFixed(2));
-        setValuePLN(Number(event.target.value));
-    }
-
-    const onValueCURChange = (event) => {
-        setValueCUR(Number(event.target.value));
-        setValuePLN(Number(event.target.value * rate).toFixed(2));
-    }
-
-    const save = (event) => {
-        event.preventDefault();
-
-        setSavedList(
-            [{
-                valPLN: Number(valuePLN).toFixed(2),
-                valCUR: Number(valueCUR).toFixed(2),
-                id: savedList.length ? savedList[0].id + 1 : 0,
-                code: currency,
-                rate: rate,
-                date: new Date().toISOString(),
-            }, ...savedList]
-        );
-    }
-
+    const { onChangeCurrency, onValuePLNChange, onValueCURChange, save } = useConverterFunctions(states, getBid);
 
     return (
         <section className="converter">
@@ -51,23 +17,23 @@ const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate
                     <label htmlFor="currencyField">Currency: </label>
                     <select onChange={onChangeCurrency} id="currencyList" className="converter__select">
                         {
-                            currencyList.map((currency, index) => {
+                            states.currencyList.map((currency, index) => {
                                 return (<option key={index} value={currency.code}>{currency.code}</option>);
                             })
                         }
                     </select>
                 </p>
                 <p>
-                    <input type="number" step="any" value={Number(valuePLN).toString()} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
+                    <input type="number" step="any" value={Number(states.valuePLN).toString()} onChange={onValuePLNChange} min="0" id="valuePLN" className="converter__field" autoFocus />
                     <label htmlFor="valuePLN" className="converter__code">PLN</label>
                 </p>
 
                 <p>
-                    <input type="number" step="any" value={Number(valueCUR).toString()} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
-                    <label htmlFor="currencyField" className="converter__code">{currency}</label>
+                    <input type="number" step="any" value={Number(states.valueCUR).toString()} onChange={onValueCURChange} min="0" id="currencyField" className="converter__field" />
+                    <label htmlFor="currencyField" className="converter__code">{states.currency}</label>
                 </p>
                 <p className="converter__paragraph">
-                    {currency} rate: <span className="converter__rate">{rate}</span>
+                    {states.currency} rate: <span className="converter__rate">{states.rate}</span>
                     <button className="converter__button">Save</button>
                 </p>
             </form>
