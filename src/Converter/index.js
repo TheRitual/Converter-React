@@ -1,6 +1,6 @@
 import "./style.css";
 import { useEffect } from "react";
-import Clock from "./Clock"
+import Clock from "./Clock/useDate"
 
 const Converter = ({ valuePLN, valueCUR, setValueCUR, setValuePLN, setRate, rate, setCurrency, getBid, setSavedList, currency, savedList, currencyList }) => {
 
