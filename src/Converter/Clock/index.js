@@ -1,18 +1,8 @@
-import { useEffect, useState } from "react";
 import "./style.css"
+import { useDate } from "./useDate";
 
 const Clock = () => {
-    const [time, setTime] = useState(new Date().toISOString());
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setTime(new Date().toISOString());
-        }, 100);
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, []);
-
+    const time = useDate();
     return (
         <section className="clock">
             <div className="clock__information">
