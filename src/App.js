@@ -1,9 +1,9 @@
 import Converter from "./Converter";
 import Header from "./Header";
 import List from "./List";
-import "./App.css";
 import { useFetchData } from "./utils/useFetchData";
 import { useConverterStates } from "./utils/useConverterStates"
+import { Box } from "./styled";
 
 function App() {
   const states = useConverterStates();
@@ -13,13 +13,10 @@ function App() {
   return (
     <main>
       <Header />
-      <div className="box">
-        <Converter
-          states={states}
-          getBid={getBid}
-        />
+      <Box>
+        <Converter states={states} getBid={getBid}/>
         <List savedList={states.savedList} setSavedList={states.setSavedList} />
-      </div>
+      </Box>
     </main>
   );
 }

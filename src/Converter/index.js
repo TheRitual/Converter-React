@@ -9,9 +9,7 @@ const Converter = ({ states, getBid }) => {
     return (
         <section className="converter">
             <h2 className="converter__header">Converter</h2>
-            <Clock>
-
-            </Clock>
+            <Clock />
             <form className="converter__form" onSubmit={save}>
                 <p>
                     <label htmlFor="currencyField">Currency: </label>
