@@ -1,11 +1,11 @@
-import "./style.css"
 import { useDate } from "./useDate";
+import { ClockBar, ClockInformation } from "./styled";
 
 const Clock = () => {
     const time = useDate();
     return (
         <section className="clock">
-            <div className="clock__information">
+            <ClockInformation>
                 {new Date(time).toLocaleString(undefined, {
                     month: "long",
                     weekday: "long",
@@ -15,8 +15,8 @@ const Clock = () => {
                     minute: "numeric",
                     second: "numeric",
                 })}
-            </div>
-            <progress value={new Date(time).getMilliseconds() + new Date(time).getSeconds() * 1000} max="60000" className="clock__bar" />
+            </ClockInformation>
+            <ClockBar value={new Date(time).getMilliseconds() + new Date(time).getSeconds() * 1000} max="60000"/>
         </section>
     );
 }
