@@ -1,4 +1,4 @@
-import "./style.css";
+import { ClearButton, ListHeader, ListValue, SavedList, SavedPosition, StyledList, ListCode, RemoveButton} from "./styled";
 
 const List = ({ savedList, setSavedList }) => {
     const removeItem = (id) => {
@@ -10,32 +10,32 @@ const List = ({ savedList, setSavedList }) => {
     }
 
     return (
-        <section className="list">
-            <h2 className="list__header">Saved</h2>
-            {savedList.length > 0 ? <button className="list__clearListButton" onClick={clearList} >Clear All</button> : ""}
-            <ul className="list__savedList">
+        <StyledList>
+            <ListHeader>Saved</ListHeader>
+            {savedList.length > 0 ? <ClearButton onClick={clearList} >Clear All</ClearButton> : ""}
+            <SavedList>
                 {savedList.map((record) => {
                     return (
-                        <li key={record.id} className="list__savedPositions" title={(Date(record.date) + " rate: " + record.rate)}>
-                            <div className="list_positionElement">
-                                <span className="list__value">{record.valPLN}</span>&nbsp;
-                                <span className="list__code">PLN</span>&nbsp;
+                        <SavedPosition key={record.id} title={(Date(record.date) + " rate: " + record.rate)}>
+                            <div>
+                                <ListValue>{record.valPLN}</ListValue>&nbsp;
+                                <ListCode>PLN</ListCode>&nbsp;
                             </div>
-                            <div className="list_positionElement">
+                            <div>
                                 &nbsp;➤&nbsp;
                             </div>
-                            <div className="list_positionElement">
-                                <span className="list__value">{record.valCUR}</span>&nbsp;
-                                <span className="list__code">{record.code}</span>&nbsp;
+                            <div>
+                                <ListValue>{record.valCUR}</ListValue>&nbsp;
+                                <ListCode>{record.code}</ListCode>&nbsp;
                             </div>
-                            <div className="list_positionElement">
-                                <button className="list__removeButton" onClick={() => removeItem(record.id)} >&#10006;</button>
+                            <div>
+                                <RemoveButton onClick={() => removeItem(record.id)} >&#10006;</RemoveButton>
                             </div>
-                        </li>
+                        </SavedPosition>
                     );
                 })}
-            </ul>
-        </section>);
+            </SavedList>
+        </StyledList>);
 };
 
 export default List;
