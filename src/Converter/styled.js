@@ -1,6 +1,6 @@
-/* converter.css */
+import styled, { css } from "styled-components";
 
-.converter {
+export const StyledConverter = styled.section`
     flex-basis: 400px;
     margin: 30px;
     text-align: center;
@@ -10,17 +10,14 @@
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px 10px #00000099;
-}
+    ${({ hidden }) => hidden && css`display: none;`}
+`;
 
-.converter--hidden {
-    display: none;
-}
-
-.converter__header {
+export const ConverterHeader = styled.h2`
     padding: 0px;
-}
+`;
 
-.converter__select {
+export const ConverterSelect = styled.select`
     font-family: 'Dela Gothic One', cursive;
     width: 150px;
     text-align: center;
@@ -29,19 +26,17 @@
     padding: 10px;
     background-color: #FFF;
     color: #005857;
-}
+    &:active {
+       background-color: #005857;
+        color: #FFF;
+    }
+    &:focus {
+        background-color: #005857;
+        color: #FFF;
+    }
+`;
 
-.converter__select:active {
-    background-color: #005857;
-    color: #FFF;
-}
-
-.converter__select:focus {
-    background-color: #005857;
-    color: #FFF;
-}
-
-.converter__field {
+export const ConverterField = styled.input`
     font-family: 'Dela Gothic One', cursive;
     width: 250px;
     text-align: center;
@@ -50,18 +45,16 @@
     padding: 10px;
     background-color: #FFF;
     color: #005857;
-}
+    &:active {
+       background-color: #ebebeb;
+    }
+    &:focus {
+        background-color: #def0ef;
+        color: #000;
+    }
+`;
 
-.converter__field:active {
-    background-color: #ebebeb;
-}
-
-.converter__field:focus {
-    background-color: #def0ef;
-    color: #000;
-}
-
-.converter__button {
+export const ConverterButton = styled.button`
     display: block;
     font-size: 20px;
     margin: 15px auto;
@@ -71,20 +64,24 @@
     color: #005857;
     background-color: hsl(179, 100%, 98%);
     transition: 0.3s;
-}
+    &:hover {
+        background-color: hsl(179, 100%, 20%);
+        color: #FFF;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+`;
 
-.converter__button:hover {
-    background-color: hsl(179, 100%, 20%);
-    color: #FFF;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.converter__code {
+export const ConverterCode = styled.label`
     color: #FFF;
     background-color: #005857;
     font-size: 18px;
     padding: 7px;
     border-radius: 10px;
     margin-left: 10px;
-}
+`;
+
+export const ConverterSection = styled.section`
+    margin: 20px 0;
+    padding: 0px;
+`;
